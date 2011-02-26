@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="jag.kumamoto.gotochi.counter"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" >
+        <activity android:label="@string/app_name" android:name=".CounterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+                
+            <!-- 各都道府県のエントリポイントになるアクティビティはここから -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+	        	<category android:name="android.intent.category.DEFAULT" />
+                <category android:name="jag.gotochi.category.ACTIVITY" />
+	            <data android:scheme="gotochi" android:host="kumamoto" /><!-- これは熊本県のご当地アプリの場合 -->
+            </intent-filter>
+	        <meta-data android:name="GotochiApp" android:value="true" />
+	        <!-- ここまでをご当地アプリ用に新規追加 -->
+	        
+	    </activity>
+ 		<activity android:name="SecondActivity">
+	    	<!-- エントリポイント以外のアクティビティはここから -->
+			<meta-data android:name="GotochiApp" android:value="true" />
+	        <!-- ここまでをご当地アプリ用に新規追加 -->
+	    </activity>
+
+</application>
+    <uses-sdk android:minSdkVersion="4" />
+
+<uses-permission android:name="android.permission.GET_TASKS"></uses-permission>
+
+</manifest> 
